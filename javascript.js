@@ -27,7 +27,7 @@ function stylingAndEventListener(dimention){
 
     arrayOfDivs.forEach(element => {
         
-    let sHeight = (550 / dimention) - 1;
+    let sHeight = (480 / dimention) - 1;
     element.style.height = `${sHeight}px`;
     element.style.width = `${sHeight}px`;
     element.dataset.brightValue = 100;
@@ -59,7 +59,7 @@ AppendArrayDivsToTheGrid();
 sizeButton.addEventListener('click', function(){
     let gridSize = prompt('Chose a grid size');
 
-    if (!isNaN(gridSize) && gridSize < 100){
+    if (!isNaN(gridSize) && gridSize < 100 && gridSize){
         while(theGrid.lastChild){
             theGrid.removeChild(theGrid.lastChild);
 
