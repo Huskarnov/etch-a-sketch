@@ -1,68 +1,79 @@
-let gridSize;
-let elementSize = prompt("chose a size");
+
+let gridSideDimention = prompt("Chose a grid size");
+
+if(gridSideDimention > 100 || isNaN(gridSideDimention)){
+    alert("Must be a number under 100");
+    window.location.reload();
+}
 
 let theGrid = document.querySelector('.the-grid');
 
-let standardDiv = document.createElement('div');
-
 let sizeButton = document.querySelector('button');
 
+let standardDiv = document.createElement('div');
 let arrayOfDivs =[];
 
 
-function cloneAndAdd(side){
+function cloneAndPush(side){
     arrayOfDivs = [];
 for(let i = 0; i < side*side; i++){
     arrayOfDivs.push(standardDiv.cloneNode());
     console.log(arrayOfDivs.i);
     }
 }
-cloneAndAdd(elementSize);
+cloneAndPush(gridSideDimention);
 
-function styleAndAppend(dimention){
+function stylingAndEventListener(dimention){
+
     arrayOfDivs.forEach(element => {
+        
     let sHeight = (550 / dimention) - 1;
     element.style.height = `${sHeight}px`;
     element.style.width = `${sHeight}px`;
+    element.dataset.brightValue = 100;
+    element.style.filter = `brightness(${element.dataset.brightValue}%)`
 
     element.addEventListener("mouseover", function(){
-
-        element.style.backgroundColor = "orange";
-            setTimeout(() => {
-                element.style.backgroundColor = "green";
-            }, 1000);
+        let red = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * 256);
+        let blue = Math.floor(Math.random()*256);
+        element.style.backgroundColor = `rgba(${red}, ${green}, ${blue})`;
+        element.dataset.brightValue -= 10;
+        element.style.filter = `brightness(${element.dataset.brightValue}%)`;
+        
             }
         )
     }
 );
 }
-styleAndAppend(elementSize);
+stylingAndEventListener(gridSideDimention);
 
-function appendAndWrapThisShit(){
+function AppendArrayDivsToTheGrid(){
     for (let y = 0; y < arrayOfDivs.length; y++){
     theGrid.appendChild(arrayOfDivs[y]);
     }
 }
-appendAndWrapThisShit();
+AppendArrayDivsToTheGrid();
 
 
 sizeButton.addEventListener('click', function(){
-    gridSize = prompt('Chose a grid size');
+    let gridSize = prompt('Chose a grid size');
 
-    if (!isNaN(gridSize)){
+    if (!isNaN(gridSize) && gridSize < 100){
         while(theGrid.lastChild){
             theGrid.removeChild(theGrid.lastChild);
 
             }
         
-        cloneAndAdd(gridSize);
+        cloneAndPush(gridSize);
 
-        styleAndAppend(gridSize);
+        stylingAndEventListener(gridSize);
 
-        appendAndWrapThisShit();
+        AppendArrayDivsToTheGrid();
         
     }else{
-        alert('Nigga that aint a numba !')
+        alert("Must be a number under 100");
+        
     }
 })
 
