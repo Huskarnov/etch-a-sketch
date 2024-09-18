@@ -1,5 +1,5 @@
 
-let gridSideDimention = prompt("Chose a grid size");
+let gridSideDimention = 16;
 
 if(gridSideDimention > 100 || isNaN(gridSideDimention)){
     alert("Must be a number under 100");
