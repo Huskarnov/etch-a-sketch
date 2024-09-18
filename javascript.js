@@ -8,7 +8,7 @@ let sizeButton = document.querySelector('button');
 
 let arrayOfDivs =[];
 
-for(let i = 0; i < 4096; i++){
+for(let i = 0; i < 64; i++){
     arrayOfDivs.push(standardDiv.cloneNode());
 }
 
@@ -23,16 +23,31 @@ arrayOfDivs.forEach(element => {
         )
     }
 );
-
 for (let y = 0; y < arrayOfDivs.length; y++){
     theGrid.appendChild(arrayOfDivs[y]);
 }
 
 sizeButton.addEventListener('click', function(){
     gridSize = prompt('Chose a grid size');
+
     if (!isNaN(gridSize)){
-        // activate
+        while(theGrid.lastChild){
+            theGrid.removeChild(theGrid.lastChild);
+            
+            }
+        
+        // for(let i = 0; i < gridSize; i++){
+        //     arrayOfDivs.push(standardDiv.cloneNode());
+            
+        // }
+
+        // for (let y = 0; y < arrayOfDivs.length; y++){
+        //     theGrid.appendChild(arrayOfDivs[y]);
+        // }
+
+        
     }else{
         alert('Nigga that aint a numba !')
     }
 })
+

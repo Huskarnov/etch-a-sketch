@@ -12,6 +12,8 @@ section{
     justify-content: center;
 
     flex-direction: column;
+
+    gap: 5px;
 }
 .the-grid{
 
@@ -28,9 +30,11 @@ section{
     margin: 0;
     padding: 0;
 
+    /* background-color: green; */
+
 }
 
-.the-grid div{
+.the-grid > div{
     display: flex;
     align-items: center;
     justify-content: center;
