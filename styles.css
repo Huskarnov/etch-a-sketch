@@ -30,19 +30,15 @@ section{
     margin: 0;
     padding: 0;
 
-    /* background-color: green; */
+    background-color: green;
 
 }
 
 .the-grid > div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
     background-color: green;
     
-    height: 8.5px;
-    width: 8.5px;
+    /* height: 68px;
+    width: 68px; */
 
     margin: 0;
     padding: 0;
